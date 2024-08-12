@@ -1,35 +1,35 @@
-2024-07-07 18:57:09 UTC
+2024-08-12 12:07:49 UTC
 macOS-10.16-x86_64-i386-64bit
 Ren'Py 8.2.3.24061702
 
-Early init took 0.06s
-Loading error handling took 0.03s
-Loading script took 0.12s
-Loading save slot metadata took 0.02s
+Early init took 0.12s
+Loading error handling took 0.07s
+Loading script took 0.28s
+Loading save slot metadata took 0.06s
 Loading persistent took 0.00s
-Running init code took 0.04s
-Loading analysis data took 0.02s
+Running init code took 0.08s
+Loading analysis data took 0.03s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.01s
+Reloading save slot metadata took 0.03s
 Index archives took 0.00s
 Backing up script files to '/Users/phong/Library/RenPy/backups/Here comes the Son':
-Dump and make backups took 0.05s
+Dump and make backups took 0.10s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.04s
+Initial gc took 0.06s
 DPI scale factor: 1.000000
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
+Init translation took 0.06s
+Build styles took 0.01s
 Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.03s
+Analyze screens took 0.03s
+Save screen analysis took 0.03s
+Prepare screens took 0.14s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.05s
 Running _start took 0.00s
-Interface start took 0.29s
+Interface start took 0.61s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1280, 800)
@@ -41,3 +41,17 @@ Version: b'2.1 INTEL-22.5.11'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1178, 663) drawable=(2356, 1326)
 Maximum texture size: 4096x4096
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.04s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.00s
+Build styles took 0.01s
+Load screen analysis took 0.05s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
+Running _start took 0.00s

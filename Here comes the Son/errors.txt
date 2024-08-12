@@ -1,0 +1,14 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 11: python block expects a non-empty block.
+    python:
+           ^
+
+File "game/script.rpy", line 12: expected statement.
+    def check_music():
+                   ^
+
+Ren'Py Version: Ren'Py 8.2.3.24061702
+Mon Aug 12 12:42:40 2024
