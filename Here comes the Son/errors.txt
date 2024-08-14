@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 11: python block expects a non-empty block.
-    python:
-           ^
-
-File "game/script.rpy", line 12: expected statement.
-    def check_music():
-                   ^
+File "game/script.rpy", line 15: Line is indented, but the preceding image statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    always:
+    ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Mon Aug 12 12:42:40 2024
+Wed Aug 14 11:00:17 2024
