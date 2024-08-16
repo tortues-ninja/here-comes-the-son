@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 15: Line is indented, but the preceding image statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    always:
-    ^
+File "game/script.rpy", line 75: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Wed Aug 14 11:00:17 2024
+Fri Aug 16 14:46:01 2024

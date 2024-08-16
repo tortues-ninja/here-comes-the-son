@@ -1,24 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 27, in script
-    e "You've created a new Ren'Py game."
-Exception: Sayer 'e' is not defined.
+  File "game/script.rpy", line 81, in script
+    jump hobby
+ScriptError: could not find label 'hobby'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 27, in script
-    e "You've created a new Ren'Py game."
-  File "/Users/phong/Documents/renpy-8.2.3-sdk/renpy/ast.py", line 2560, in execute
-    Say.execute(self)
-  File "/Users/phong/Documents/renpy-8.2.3-sdk/renpy/ast.py", line 575, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "/Users/phong/Documents/renpy-8.2.3-sdk/renpy/ast.py", line 464, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'e' is not defined.
+  File "game/script.rpy", line 81, in script
+    jump hobby
+  File "/Users/phong/Documents/renpy-8.2.3-sdk/renpy/ast.py", line 1701, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/Users/phong/Documents/renpy-8.2.3-sdk/renpy/script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'hobby'.
 
 macOS-10.16-x86_64-i386-64bit x86_64
 Ren'Py 8.2.3.24061702
-Here comes the Son 1.0
-Sun Jul  7 20:48:03 2024
+Les Forceurs de l'Espace 1.0
+Fri Aug 16 14:49:38 2024
