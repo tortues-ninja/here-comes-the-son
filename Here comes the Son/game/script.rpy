@@ -66,6 +66,7 @@ label start:
         p "Lise et Son... ? Ah mais oui bien sûr... Allons vite raconter les histoires à l'IA !"
     
     label ai_story:
+        play music "ai-beeping-sound.mp3"
         scene bg ai face
         with fade
 
@@ -85,8 +86,12 @@ label start:
                 jump ending
 
     label ending:
+        play sound "loading-bar-sound.mp3"
         scene bg filled gauge
         with fade
+        with Pause(1.5)
+
+        play music "congratulations.mp3"
 
         show phong:
             xalign 0.0
@@ -109,6 +114,7 @@ label start:
         v "'Qui ne force rien n'a rien' ?"
         p "Allez on arrête là, je crois qu'on approche de la Terre mon Amiral."
 
+        play music "wedding-applause.mp3"
         scene bg wedding landing
         with fade
 
