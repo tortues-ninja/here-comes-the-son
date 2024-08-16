@@ -9,8 +9,8 @@ define v = Character("Amiral Vuong", callback = name_callback, cb_name = "vuong"
 define p = Character("Capitaine Phong", callback = name_callback, cb_name = "phong")
 define n = Character(callback = name_callback, cb_name = None)
 
-image vuong = At('vuong main', sprite_highlight('vuong'))
-image phong = At('phong main', sprite_highlight('phong'))
+image vuong = At('vuong main frame', sprite_highlight('vuong'))
+image phong = At('phong main frame', sprite_highlight('phong'))
 
 image bg starship deck = Transform("images/bg starship deck.jpg", size=(1920, 1080), fit="fill")
 image bg ai face = Transform("images/bg ai face.jpg", size=(1920, 1080), fit="fill")
@@ -38,21 +38,22 @@ label start:
     with Pause (7)
 
     label command_deck:
+        stop sound
         play music "starship-music.mp3"
         scene bg starship deck
         with fade
 
         show vuong:
-            xalign 1.0
-            yalign 1.0
+            xalign 0.9
+            yalign 0.4
         with dissolve
 
         v "Trời đất ơi, nous sommes touchés !"
         v "Capitaine, quels sont les dégâts ?"
 
         show phong:
-            xalign 0.0
-            yalign 1.0
+            xalign 0.1
+            yalign 0.4
         with dissolve
 
         p "Le bouclier est hors-service et le réacteur principal est endommagé. C'est la merde."
@@ -66,16 +67,19 @@ label start:
         p "Lise et Son... ? Ah mais oui bien sûr... Allons vite raconter les histoires à l'IA !"
     
     label ai_story:
+        stop music
         play music "ai-beeping-sound.mp3"
         scene bg ai face
         with fade
 
         show vuong:
-            xalign 1.0
-            yalign 1.0
+            xalign 0.9
+            yalign 0.4
         with dissolve
 
         v "Alors, quelle histoire voulez vous entendre ?"
+
+        hide vuong
 
         menu:
             "Un nouveau hobby ? Et si on y allait mollo...":
@@ -86,6 +90,7 @@ label start:
                 jump ending
 
     label ending:
+        stop music
         play sound "loading-bar-sound.mp3"
         scene bg filled gauge
         with fade
@@ -94,34 +99,46 @@ label start:
         play music "congratulations.mp3"
 
         show phong:
-            xalign 0.0
-            yalign 1.0
+            xalign 0.1
+            yalign 0.4
         with dissolve
 
         p "Mon Amiral, la jauge est remplie ! Le bouclier est fonctionnel !"
         p "Nous allons pouvoir réparer le réacteur principal et reprendre notre route vers le mariage de Lise et Son !"
 
         show vuong:
-            xalign 1.0
-            yalign 1.0
+            xalign 0.9
+            yalign 0.4
         with dissolve
 
         v "Excellente nouvelle mon brave !"
         v "Je n'aurais pas aimé voir la tête de Lise si les témoins de son mari n'avaient pas pu être là."
         p "Heureusement que ce sont de vrais Forceurs !"
-        v "Oui ! Comme l'a dit un grand philosophe, 'Ce qui ne nous tue pas, nous rend plus forceurs'"
+        v "Oui ! Comme l'a dit un grand philosophe, \"Ce qui ne nous tue pas, nous rend plus forceurs\""
         p "Je ne suis pas sûr que ce soit la bonne citation..."
-        v "'Qui ne force rien n'a rien' ?"
+        v "\"Qui ne force rien n'a rien\" ?"
         p "Allez on arrête là, je crois qu'on approche de la Terre mon Amiral."
 
+        stop music
         play music "wedding-applause.mp3"
         scene bg wedding landing
         with fade
 
+        show phong:
+            xalign 0.1
+            yalign 0.4
+        with dissolve
+
         p "Mon Amiral, j'ai l'impression qu'on a loupé la cérémonie."
+
+        show vuong:
+            xalign 0.9
+            yalign 0.4
+        with dissolve
+
         v "Ce n'est pas bien grave mon brave. On arrive pour le mot de la fin !"
         p "À vous l'honneur."
-        v "Comme l'a dit un grand philosophe, 'L'Amour, c'est forcer ensemble dans la même direction !'"
+        v "Comme l'a dit un grand philosophe, \"L'Amour, c'est forcer ensemble dans la même direction !\""
         p "Et vive les mariés !"
 
     return
