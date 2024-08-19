@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 77: choice menuitem expects a non-empty block.
+    "C'est la recette d'un pote qui fait des supers barbecues":
+                                                               ^
+
+Ren'Py Version: Ren'Py 8.2.3.24061702
+Mon Aug 19 03:55:13 2024
