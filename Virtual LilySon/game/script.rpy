@@ -25,6 +25,29 @@ image bg ai face = Transform("images/background/bg ai face.jpg", size=(1920, 108
 
 label start:
 
+    python:      
+        mytho_value = 10
+        forceur_value = 40
+        squatteur_value = 50
+        sportif_value = 90
+        joueur_value = 80
+        
+        plot_values = [
+            mytho_value,
+            forceur_value,
+            squatteur_value,
+            sportif_value,
+            joueur_value
+        ]
+
+        plot_labels = [
+            Text('Mytho'), 
+            Text('Forceur'), 
+            Text('Squatteur'), 
+            Text('Sportif'), 
+            Text('Joueur')
+        ]
+
     play music "ai-beeping-sound.mp3"
     scene bg ai face
 
@@ -64,8 +87,23 @@ label start:
                 jump companion_validation
 
     label companion_validation:
+
+        python:
+            label_chart = RadarChart(
+                size=500,
+                values=plot_values,
+                max_value=100,
+                data_colour=(213, 71, 130, 255),
+                line_colour=(0, 0, 0, 255),
+                background_colour=(20, 21, 17, 170),
+                labels = plot_labels
+            )
+
         play music "ai-beeping-sound.mp3"
         scene bg ai face
+        show image label_chart:
+            xalign 0.5
+            yalign 0.5
         "Est-ce que le compagnon créé vous convient ?"
 
         menu: 
