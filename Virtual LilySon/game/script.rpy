@@ -10,7 +10,7 @@ define v = Character("Amiral Vuong", callback = name_callback, cb_name = "vuong"
 define p = Character("Capitaine Phong", callback = name_callback, cb_name = "phong")
 define pnj = Character("Mec random", callback = name_callback, cb_name = "pnj")
 define n = Character(callback = name_callback, cb_name = None)
-
+define config.debug_sound = True 
 
 
 image son = At('son main frame', sprite_highlight('son'))
@@ -30,10 +30,12 @@ label start:
         with fade
         menu:
 
-            "Cuisinier":
+            "Le cuistot":
                 jump le_cuistot
             "le guerrier de l'espace":
                 jump command_deck
+            "Le squatteur":
+                jump lune_de_miel
 
 
     # Scène du steakguez
