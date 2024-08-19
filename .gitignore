@@ -2,3 +2,6 @@
 **/log.txt
 **/cache/
 **/saves/
+*.rpyc
+errors.txt
+traceback.txt
