@@ -15,6 +15,7 @@ define config.debug_sound = True
 
 
 image son = At('son main frame', sprite_highlight('son'))
+image lise = At('lise main frame', sprite_highlight('lise'))
 image pnj = At('pnj main frame', sprite_highlight('pnj'))
 
 image bg ai face = Transform("images/background/bg ai face.jpg", size=(1920, 1080), fit="fill")
@@ -47,6 +48,7 @@ label start:
 
     # Le menu principal pour charger des scénarios
     label home: 
+        stop music
         scene bg ai face
 
         "Choisissez une caractéristique pour votre compagnon"
@@ -81,15 +83,21 @@ label start:
                 jump model_l
 
     label model_l:
+        stop music
         scene bg ai face
         "Je peux vous proposer de fusionner votre compagnon avec le dernier modèle en date, le \"modèle S\""
+    
+    label model_fusion:
+        scene bg ai face
+        "Il me faut quelques caractéristiques communes supplémentaires"
 
         menu: 
-            "Oui":
-                jump companion_revalidation
-            "Non, il manque quelque chose...":
-                jump model_l
+            "Forceurs":
+                jump west_coast
+            "C'est bon j'ai ce qu'il me faut":
+                jump conclusion
+    
+    label conclusion:
+        "toto"
 
-
-    # This ends the game.
     return
