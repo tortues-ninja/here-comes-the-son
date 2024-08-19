@@ -9,95 +9,86 @@ define l = Character("Lise", callback = name_callback, cb_name = "lise")
 define v = Character("Amiral Vuong", callback = name_callback, cb_name = "vuong")
 define p = Character("Capitaine Phong", callback = name_callback, cb_name = "phong")
 define pnj = Character("Mec random", callback = name_callback, cb_name = "pnj")
+
 define n = Character(callback = name_callback, cb_name = None)
 define config.debug_sound = True 
 
 
 image son = At('son main frame', sprite_highlight('son'))
 image pnj = At('pnj main frame', sprite_highlight('pnj'))
-image steakguez = Image("steakguez frame.webp", oversample=1.4)
+
+image bg ai face = Transform("images/background/bg ai face.jpg", size=(1920, 1080), fit="fill")
 
 
 # The game starts here.
 
 label start:
 
+    play music "ai-beeping-sound.mp3"
+    scene bg ai face
+
+    "Bienvenue dans Companion Creator 1.0"
     "Commençons la création de votre compagnon virtuel"
+    "Sur quelle base de compagnon voulez-vous partir ?"
+
+    menu:
+        "Modèle S":
+            jump home
+        "Modèle L":
+            jump model_validation
+
+    label model_validation:
+        scene bg ai face
+        "Vous êtes sûrs ?"
+
+        menu: 
+            "Non, laisse moi recommencer...":
+                jump start
 
     # Le menu principal pour charger des scénarios
     label home: 
-        scene black
-        with fade
-        menu:
+        scene bg ai face
 
-            "Le cuistot":
+        "Choisissez une caractéristique pour votre compagnon"
+
+        menu:
+            "Cuisinier":
                 jump le_cuistot
-            "le guerrier de l'espace":
-                jump command_deck
+            "Compétiteur":
+                jump vvd
             "Le squatteur":
                 jump lune_de_miel
+            "C'est bon j'ai ce qu'il me faut":
+                jump companion_validation
 
-
-    # Scène du steakguez
-    label le_cuistot: 
-        
-        play sound "bbq.mp3"
-        scene bg_barbecue
-        with fade
-        with Pause (3)
-
-        show pnj: 
-            xalign 0.1
-            yalign 0.4
-        with dissolve
-
-        pnj "Son, Son! Je vais te montrer une recette que j'ai créer c'est de la bombe"
-
-        show son:
-            xalign 0.9
-            yalign 0.4
-        with dissolve
-        
-        s "Yo! Que pasa en la casa?"
-        pnj "Mec! je te présente le Steakguez, goûte ça"
-
-        show steakguez:
-            xalign 0.5
-            yalign 0.4
-        with dissolve
-
-        s "Oh purée, c'est tellement bon"
-
-        stop sound
-        scene black
-        with fade
-
-        "Le weekend suivant..."
-
-        scene bg salon massy
-        with fade
-
-        show son:
-            xalign 0.1
-            yalign 0.4
-        with dissolve
-        s "Bienvenue à mon barbecue d'anniversaire!"
-        s "Venez goûter à cette tuerie, c'est un steakguez"
+    label companion_validation:
+        play music "ai-beeping-sound.mp3"
+        scene bg ai face
+        "Est-ce que le compagnon créé vous convient ?"
 
         menu: 
-            "C'est une recette que j'ai inventée":
-                jump home
-            "C'est la recette d'un pote qui fait des supers barbecues":
-                jump home
-            "Rajoutez du nuoc mam c'est vraiment incroyable":
-                jump home
-            "C'est la recette de ma mère, elle fait les meilleurs steakguez":
-                jump home
+            "Oui":
+                jump companion_revalidation
+            "Non, il manque quelque chose...":
+                jump model_l
 
-    label command_deck:
+    label companion_revalidation:
+        scene bg ai face
+        "Vous êtes sûrs ?"
 
-        # scene bg starship deck
-        s "toto"
+        menu: 
+            "Non, en effet il manque quelque chose...":
+                jump model_l
+
+    label model_l:
+        scene bg ai face
+        "Je peux vous proposer de fusionner votre compagnon avec le dernier modèle en date, le \"modèle S\""
+
+        menu: 
+            "Oui":
+                jump companion_revalidation
+            "Non, il manque quelque chose...":
+                jump model_l
 
 
     # This ends the game.
