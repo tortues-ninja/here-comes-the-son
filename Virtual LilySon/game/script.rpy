@@ -13,6 +13,7 @@ define pnj = Character("Mec random", callback = name_callback, cb_name = "pnj")
 define n = Character(callback = name_callback, cb_name = None)
 define config.debug_sound = True 
 
+define flash = Fade(0.1, 0.0, 0.5, color="#fff")
 
 image son = At('son main frame', sprite_highlight('son'))
 image lise = At('lise main frame', sprite_highlight('lise'))
@@ -54,6 +55,7 @@ label start:
     "Bienvenue dans Companion Creator 1.0"
     "Commençons la création de votre compagnon virtuel"
     "Sur quelle base de compagnon voulez-vous partir ?"
+    stop music
 
     menu:
         "Modèle S":
@@ -133,9 +135,5 @@ label start:
             "Forceurs":
                 jump west_coast
             "C'est bon j'ai ce qu'il me faut":
-                jump conclusion
-    
-    label conclusion:
-        "toto"
-
+                jump fuse_faces 
     return

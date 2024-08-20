@@ -60,3 +60,4 @@ label west_coast:
     with dissolve
 
     l "C'est bien nous !"
+    jump model_fusion 
