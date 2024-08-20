@@ -132,8 +132,10 @@ label start:
         "Il me faut quelques caractéristiques communes supplémentaires"
 
         menu: 
-            "Forceurs":
+            "Forceur":
                 jump west_coast
+            "Maniaque":
+                jump tasses
             "C'est bon j'ai ce qu'il me faut":
                 jump fuse_faces 
     return
