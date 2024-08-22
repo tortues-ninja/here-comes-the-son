@@ -67,16 +67,16 @@ label start:
     ai "Sur quelle base de compagnon voulez-vous partir ?"
     stop music
 
-    jump label_trombi
+    hide ai
+    jump model_choice 
 
     # Le menu principal pour charger des scénarios
     label home: 
         stop music
         scene bg main
 
-        ai "Choisissez une caractéristique pour votre compagnon"
-
         menu:
+            ai "Choisissez une caractéristique pour votre compagnon"
             "Cuisinier":
                 jump le_cuistot
             "Compétiteur":
@@ -141,6 +141,7 @@ label start:
 
         $ extension = True
 
+        hide ai
         jump model_choice
     
     label model_fusion:

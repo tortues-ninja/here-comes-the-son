@@ -9,7 +9,7 @@ define artanis_trombi = Image("artanis.jpg", oversample=3.5)
 define baloo_trombi = Image("baloo.jpg", oversample=4)
 
 
-label label_trombi: 
+label model_choice: 
     show screen trombi
     pause
     pause
@@ -107,7 +107,7 @@ label modele_non_disponible:
     pause
     hide screen trombi_error
     hide screen text_non_dispo
-    jump label_trombi
+    jump model_choice 
 
 label clear_trombi: 
     hide screen trombi
