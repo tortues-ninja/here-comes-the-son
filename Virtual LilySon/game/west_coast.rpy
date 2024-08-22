@@ -30,34 +30,32 @@ label west_coast:
     with fade
 
     show pnj:
-        xalign 0.1
+        xalign 0.01
         yalign 0.4
     with dissolve
-
-    pnj "Vous dansez trop bien, ça fait combien de temps que vous faites du West Coast ?"
+    pnj "C'est qui ce couple de oufs? Ils dansent trop bien je vais aller les voir."
 
     show lise:
-        xalign 0.9
+        xalign 0.99
+        yalign 0.4
+    show son:
+        xalign 0.67
         yalign 0.4
     with dissolve
+    pause
+    pnj "Vous dansez trop bien! ça fait combien de temps que vous faites du West Coast ?"
 
     l "Un mois !"
     pnj "(surpris) Un... mois ?"
 
-    hide lise
-    show son:
-        xalign 0.9
-        yalign 0.4
-    with dissolve
-
-    s "Oui oui, mais en vrai c'est plus facile quand t'as fait du Viet Vo Dao, du tennis et de l'escalade avant, c'est un peu les mêmes moves."
-    pnj "Euh... OK. Et les inscriptions à la compétition internationale à Manchester le mois prochain, c'est des homonymes ou bien... ?"
-
-    hide son
-    show lise:
-        xalign 0.9
-        yalign 0.4
-    with dissolve
-
-    l "C'est bien nous !"
+    s "Oui oui mais tu sais, on danse que 5 fois par semaine." 
+    l "On a aussi réaménager notre salon pour avoir de l'espace et danser à la maison."
+    s "En même temps Lily..."
+    s "Tu danses jusqu'à ne plus tenir debout à cause de ta blessure au pied. Tu vas jamais guérir!"
+    l "Oh non, t'inquiètes pas Anh Son. Franchement j'aime bien ça hihi"
+    pnj "Euh... OK..."
+    pnj "Et les inscriptions à la compétition internationale SUPERSTAR à Manchester le mois prochain, c'est vraiment vos noms que j'ai vu?"
+    l "C'est bien nous! On s'entraîne à fond cette année."
+    s "Carrément! On a un objectif secret..."
+    s "On va se marier cet été et on compte bien mettre la misère à tous nos invités sur le dancefloor hahaha"
     jump model_fusion 

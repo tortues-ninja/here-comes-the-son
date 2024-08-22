@@ -170,7 +170,7 @@ label start:
 
         "Très bon choix! Vous avez sélectionné le modèle Lily"
         menu:
-            "Entraînons le modèle Lily"
+            "Entraînons le modèle Lily."
             "scénario 1":
                 jump conclusion
             "scénario 2":
@@ -184,13 +184,14 @@ label start:
         show ai:
             xalign 0.5
             yalign 0.4
+        with dissolve
         ai "Merci d'avoir compléter le scénario \"[scenar_choisi]\"! Continuons l'entraînement."
         hide ai
         jump menu_fusion
 
     label menu_fusion:
         menu: 
-            ai "Entraînons nos deux modèles en simultané"
+            ai "Entraînons nos deux modèles en simultané."
             "Scénario: Les Forceurs":
                 $ scenar_choisi = "Les Forceurs"
                 jump west_coast
