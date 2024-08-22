@@ -33,6 +33,8 @@ define SQUATTEUR_VALUE = 50
 
 define extension = False
 define first_show_stats = True
+define scenar_choisi = ""
+define son_still_training = True
 
 define plot_labels = [
         Text('Loyal'), 
@@ -86,13 +88,17 @@ label start:
 
         menu:
             ai "Choisissez un scénario d'entraînement"
-            "Scénario: Cuisinier":
+            "Scénario: Le Cuisinier":
+                $ scenar_choisi = "Le Cuisinier"
                 jump le_cuistot
-            "Scénario: Compétiteur":
+            "Scénario: Le Compétiteur":
+                $ scenar_choisi = "Le Compétiteur"
                 jump vvd
-            "Scénario: Squatteur":
+            "Scénario: Le Squatteur":
+                $ scenar_choisi = "Le Squatteur"
                 jump lune_de_miel
             "C'est bon j'ai ce qu'il me faut":
+                $ son_still_training = False 
                 jump companion_stats
 
     label companion_stats:
@@ -108,6 +114,7 @@ label start:
 
         play music "ai-beeping-sound.mp3"
         scene bg main
+        with dissolve
 
         show image label_chart:
             xalign 0.7
@@ -123,14 +130,19 @@ label start:
             $ first_show_stats = False
             jump home 
         else:
-            ai "Est-ce que le compagnon créé vous convient ?"
+            if son_still_training:
+                ai "Merci d'avoir terminé le scénario \"[scenar_choisi]\". Regardons l'avancement de notre modèle..."
+            else: 
+                ai "Voici l'état actuel du compagnon virtuel"
             menu: 
+                ai "Est-ce que le compagnon créé vous convient ?"
                 "Oui, je suis pleinement satisfait":
                     show screen text_je_ne_crois_pas 
                     pause
                     hide screen text_je_ne_crois_pas 
                     jump companion_stats
                 "Non, je souhaite continuer à entraîner le modèle":
+                    $ son_still_training = True 
                     jump home
                 "Non, je souhaite acheter une extension (promo)":
                     jump extension
@@ -152,6 +164,10 @@ label start:
         hide ai
         call model_choice
 
+        show ai:
+            xalign 0.5
+            yalign 0.4
+
         "Très bon choix! Vous avez sélectionné le modèle Lily"
         menu:
             "Entraînons le modèle Lily"
@@ -168,19 +184,22 @@ label start:
         show ai:
             xalign 0.5
             yalign 0.4
-        ai "Super! il faut encore compléter l'entraînement commun des modèles"
+        ai "Merci d'avoir compléter le scénario \"[scenar_choisi]\"! Continuons l'entraînement."
         hide ai
         jump menu_fusion
 
     label menu_fusion:
         menu: 
-            ai "Entraînons nos deux modèles"
-            "Forceur":
+            ai "Entraînons nos deux modèles en simultané"
+            "Scénario: Les Forceurs":
+                $ scenar_choisi = "Les Forceurs"
                 jump west_coast
-            "Maniaque":
+            "Scénario: Maniaques":
+                $ scenar_choisi = "Les Maniaques"
                 jump tasses
             "C'est bon, les modèles sont prêts":
-                jump fuse_faces 
+                jump mix_models_stats 
+
 
     label conclusion:
         "Merci d'avoir utilisé notre logiciel "
