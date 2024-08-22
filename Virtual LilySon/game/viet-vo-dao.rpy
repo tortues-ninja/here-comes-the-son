@@ -24,14 +24,19 @@ label vvd:
 
     menu: 
         "J'analyse mes adversaires en regardant des replays des qualifs":
-            stop sound
-            jump home
+            $ LOYAL_VALUE += 30
+            $ SPORTIF_VALUE += 10
+            $ FORCEUR_VALUE += 10
         "Je fais 20 pompes viets parce que je suis arrivé en retard":
-            stop sound
-            jump home
+            $ FORCEUR_VALUE += 10
+            $ SPORTIF_VALUE += 30
         "Je pars en soirée jusqu'au bout de la nuit avec mes compagnons d'armes":
-            stop sound
-            jump home
+            $ FORCEUR_VALUE += 30
+            $ SPORTIF_VALUE -= 20
+            $ LOYAL_VALUE -= 10
         "Je médite sous la douche":
-            stop sound
-            jump home
+            $ FORCEUR_VALUE += 20
+            $ MYTHO_VALUE += 30
+            $ LOYAL_VALUE += 10
+    stop sound
+    jump companion_stats 

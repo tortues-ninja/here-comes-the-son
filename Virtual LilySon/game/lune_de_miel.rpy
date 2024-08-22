@@ -11,7 +11,12 @@ label lune_de_miel:
     show patagonie
     "\"Lune de miel\" en Patagonie"
     stop sound
-    jump home
+    python: 
+        FORCEUR_VALUE += 30
+        SQUATTEUR_VALUE += 50
+        LOYAL_VALUE -= 20
+        
+    jump companion_stats 
     
 
     # Vuong fait le tour et se "change"

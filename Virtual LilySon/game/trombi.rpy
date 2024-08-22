@@ -128,9 +128,10 @@ label modele_non_disponible:
 
 label clear_trombi: 
     hide screen trombi
-    if extension:
-        jump model_lily
-    else: 
-        jump home
+    return
+    # if extension:
+    #     jump model_lily
+    # else: 
+    #     jump home
     
 

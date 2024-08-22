@@ -25,36 +25,42 @@ image pnj = At('pnj main frame', sprite_highlight('pnj'))
 image bg ai face = Transform("images/background/bg ai face.jpg", size=(1920, 1080), fit="fill")
 image bg main = Transform("images/background/bg retrofuture.jpg", size=(1920, 1080), fit="fill")
 
+define LOYAL_VALUE = 50
+define SPORTIF_VALUE = 50
+define FORCEUR_VALUE = 50
+define MYTHO_VALUE = 50
+define SQUATTEUR_VALUE = 50
+
+define extension = False
+define first_show_stats = True
+
+define plot_labels = [
+        Text('Loyal'), 
+        Text('Sportif'), 
+        Text('Forceur'), 
+        Text('Mytho'), 
+        Text('Squatteur')
+    ]
+
+define label_chart = RadarChart(
+        size=500,
+        values=[
+                LOYAL_VALUE,
+                SPORTIF_VALUE,
+                FORCEUR_VALUE,
+                MYTHO_VALUE,
+                SQUATTEUR_VALUE
+            ],
+        max_value=100,
+        data_colour=(213, 71, 130, 255),
+        line_colour=(0, 0, 0, 255),
+        background_colour=(20, 21, 17, 170),
+        labels = plot_labels
+    )
+
 
 # The game starts here.
-
 label start:
-
-    python:      
-        mytho_value = 10
-        forceur_value = 40
-        squatteur_value = 50
-        sportif_value = 90
-        joueur_value = 80
-        
-        plot_values = [
-            mytho_value,
-            forceur_value,
-            squatteur_value,
-            sportif_value,
-            joueur_value
-        ]
-
-        plot_labels = [
-            Text('Mytho'), 
-            Text('Forceur'), 
-            Text('Squatteur'), 
-            Text('Sportif'), 
-            Text('Joueur')
-        ]
-
-        extension = False
-
     play music "ai-beeping-sound.mp3"
     scene bg main
 
@@ -69,7 +75,9 @@ label start:
 
     hide ai
     
-    jump model_choice 
+    call model_choice 
+
+    jump companion_stats
 
     # Le menu principal pour charger des scénarios
     label home: 
@@ -77,28 +85,26 @@ label start:
         scene bg main
 
         menu:
-            ai "Choisissez une caractéristique pour votre compagnon"
-            "Cuisinier":
+            ai "Choisissez un scénario d'entraînement"
+            "Scénario: Cuisinier":
                 jump le_cuistot
-            "Compétiteur":
+            "Scénario: Compétiteur":
                 jump vvd
-            "Le squatteur":
+            "Scénario: Squatteur":
                 jump lune_de_miel
             "C'est bon j'ai ce qu'il me faut":
-                jump companion_validation
+                jump companion_stats
 
-    label companion_validation:
-
+    label companion_stats:
         python:
-            label_chart = RadarChart(
-                size=500,
-                values=plot_values,
-                max_value=100,
-                data_colour=(213, 71, 130, 255),
-                line_colour=(0, 0, 0, 255),
-                background_colour=(20, 21, 17, 170),
-                labels = plot_labels
-            )
+            plot_values = [
+                LOYAL_VALUE,
+                SPORTIF_VALUE,
+                FORCEUR_VALUE,
+                MYTHO_VALUE,
+                SQUATTEUR_VALUE
+            ]
+            label_chart.values = plot_values
 
         play music "ai-beeping-sound.mp3"
         scene bg main
@@ -111,23 +117,24 @@ label start:
             xalign 0.2
             yalign 0.4
 
-        ai "Est-ce que le compagnon créé vous convient ?"
+        if first_show_stats: 
+            ai "Voici la base du compagnon virtuel que l'on va créer"
+            ai "Passons à l'entraînement du modèle"
+            $ first_show_stats = False
+            jump home 
+        else:
+            ai "Est-ce que le compagnon créé vous convient ?"
+            menu: 
+                "Oui, je suis pleinement satisfait":
+                    show screen text_je_ne_crois_pas 
+                    pause
+                    hide screen text_je_ne_crois_pas 
+                    jump companion_stats
+                "Non, je souhaite continuer à entraîner le modèle":
+                    jump home
+                "Non, je souhaite acheter une extension (promo)":
+                    jump extension
 
-        menu: 
-            "Oui, je suis pleinement satisfait":
-                jump companion_revalidation
-            "Non, je souhaite continuer à entraîner le modèle":
-                jump home
-            "Non, je souhaite acheter une extension (promo)":
-                jump extension
-
-    label companion_revalidation:
-        scene bg main
-        ai "Vous êtes sûrs ?"
-
-        menu: 
-            "Non, en effet il manque quelque chose, je souhaite acheter une extension":
-                jump extension
 
     label extension:
         stop music
@@ -143,9 +150,8 @@ label start:
         $ extension = True
 
         hide ai
-        jump model_choice
+        call model_choice
 
-    label model_lily:
         "Très bon choix! Vous avez sélectionné le modèle Lily"
         menu:
             "Entraînons le modèle Lily"
@@ -186,4 +192,14 @@ label start:
 
 
     return
+
+screen text_je_ne_crois_pas:
+    frame: 
+        # background white 
+        xpadding 40
+        ypadding 20
+        xalign 0.5
+        yalign 0.5
+        text "Je ne crois pas..."
+
 
