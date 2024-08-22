@@ -33,7 +33,6 @@ image anim_lily:
 label fuse_faces:
     stop sound
     stop music
-    scene bg_fusion
     "Le processus de fusion des modèles commence dans 3, 2, 1..."
     "Fusion enclenché!"
     show anim_son
@@ -52,5 +51,7 @@ label fuse_faces:
         yalign 0.4
 
     "Fusion terminée!"
-    pause
+    "Deux compagnons finals ont été obtenus: le compagnon LilySon et le compagnon SonLily"
+    "Veuillez choisir votre préféré"
+    jump conclusion
 

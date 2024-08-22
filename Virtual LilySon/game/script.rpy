@@ -144,16 +144,46 @@ label start:
 
         hide ai
         jump model_choice
+
+    label model_lily:
+        "Très bon choix! Vous avez sélectionné le modèle Lily"
+        menu:
+            "Entraînons le modèle Lily"
+            "scénario 1":
+                jump conclusion
+            "scénario 2":
+                jump conclusion
+            "Le modèle Lily est prêt":
+                jump model_fusion
+
     
     label model_fusion:
         scene bg main
-        ai "Il me faut quelques caractéristiques communes supplémentaires"
+        show ai:
+            xalign 0.5
+            yalign 0.4
+        ai "Super! il faut encore compléter l'entraînement commun des modèles"
+        hide ai
+        jump menu_fusion
 
+    label menu_fusion:
         menu: 
+            ai "Entraînons nos deux modèles"
             "Forceur":
                 jump west_coast
             "Maniaque":
                 jump tasses
-            "C'est bon j'ai ce qu'il me faut":
+            "C'est bon, les modèles sont prêts":
                 jump fuse_faces 
+
+    label conclusion:
+        "Merci d'avoir utilisé notre logiciel "
+        scene family
+        pause
+        pause
+        pause
+        pause
+
+
     return
+

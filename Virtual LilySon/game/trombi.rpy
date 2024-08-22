@@ -1,26 +1,31 @@
-define lily_trombi = Image("lise main frame.png", oversample=1.5)
-define poisson_trombi = Image("poisson.jpg", oversample=1.5)
-define son_trombi = Image("son main frame.png", oversample=1.5)
-define nemo_trombi = Image("nemo.png", oversample=1.5)
-define the_rock_trombi = Image("the rock.png", oversample=1.5)
-define vuong_trombi = Image("vuong main frame.png", oversample=1.5)
-define phong_trombi = Image("phong main frame.png", oversample=1.5)
-define artanis_trombi = Image("artanis.png", oversample=1.5)
-define baloo_trombi = Image("baloo.jpg", oversample=1.5)
+define lily_trombi = Image("lise main frame.png", oversample=1.7)
+define poisson_trombi = Image("poisson.jpg", oversample=1.7)
+define son_trombi = Image("son main frame.png", oversample=1.7)
+define nemo_trombi = Image("nemo.png", oversample=1.7)
+define the_rock_trombi = Image("the rock.png", oversample=1.7)
+define vuong_trombi = Image("vuong main frame.png", oversample=1.7)
+define phong_trombi = Image("phong main frame.png", oversample=1.7)
+define artanis_trombi = Image("artanis.png", oversample=1.7)
+define baloo_trombi = Image("baloo.jpg", oversample=1.7)
+define son_barre_trombi = Image("son main frame barred.png", oversample=1.7)
 
 
 label model_choice: 
+    window hide
     show screen trombi
-    pause
-    pause
-    pause
-    pause
-    pause
-    pause
-    pause
-    pause
-    pause
-
+    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner"
+   
 screen trombi:
     grid 3 3:
         xalign 0.5
@@ -40,15 +45,21 @@ screen trombi:
         frame:
             xalign 0.5 
             yalign 0.5
-            imagebutton: 
-                idle son_trombi 
-                action Jump("clear_trombi")
+            if extension:
+                image son_barre_trombi
+            else:
+                imagebutton: 
+                    idle son_trombi 
+                    action Jump("clear_trombi")
         frame:
             xalign 0.5 
             yalign 0.5
             imagebutton: 
                 idle lily_trombi
-                action Jump("modele_non_disponible")
+                if extension:
+                    action Jump("clear_trombi")
+                else:
+                    action Jump("modele_non_disponible")
         frame:
             xalign 0.5 
             yalign 0.5
@@ -77,7 +88,10 @@ screen trombi_error:
         frame:
             xalign 0.5 
             yalign 0.5
-            image son_trombi 
+            if extension: 
+                image son_barre_trombi
+            else:
+                image son_trombi 
         frame:
             xalign 0.5 
             yalign 0.5
@@ -98,7 +112,10 @@ screen text_non_dispo:
         ypadding 20
         xalign 0.5
         yalign 0.5
-        text "Modèle non disponible dans la version gratuite. Veuillez choisir le modèle de base."
+        if extension:
+            text "Je crois qu'il y a un meilleur modèle à choisir."
+        else:
+            text "Modèle non disponible dans la version gratuite. Veuillez choisir le modèle de base."
 
 label modele_non_disponible:
     hide screen trombi
@@ -111,6 +128,9 @@ label modele_non_disponible:
 
 label clear_trombi: 
     hide screen trombi
-    jump home
+    if extension:
+        jump model_lily
+    else: 
+        jump home
     
 
