@@ -53,6 +53,8 @@ label start:
             Text('Joueur')
         ]
 
+        extension = False
+
     play music "ai-beeping-sound.mp3"
     scene bg main
 
@@ -65,11 +67,20 @@ label start:
     ai "Sur quelle base de compagnon voulez-vous partir ?"
     stop music
 
-    menu:
-        "Modèle S":
-            jump home
-        "Modèle L":
-            jump model_validation
+    label model_choice:
+
+        menu:
+            "Modèle S":
+                if extension:
+                    ai "Vous avez déjà choisi ce modèle. Veuillez en choisir un autre."
+                    jump model_choice
+                else:
+                    jump home
+            "Modèle L":
+                if extension:
+                    jump model_fusion
+                else:
+                    jump model_validation
 
     label model_validation:
         scene bg main
@@ -111,34 +122,47 @@ label start:
 
         play music "ai-beeping-sound.mp3"
         scene bg main
+
         show image label_chart:
-            xalign 0.5
-            yalign 0.5
+            xalign 0.7
+            yalign 0.4
+
+        show ai:
+            xalign 0.2
+            yalign 0.4
+
         ai "Est-ce que le compagnon créé vous convient ?"
 
         menu: 
-            "Oui":
+            "Oui, je suis pleinement satisfait":
                 jump companion_revalidation
-            "Non, il manque quelque chose...":
-                jump model_l
+            "Non, je souhaite continuer à entraîner le modèle":
+                jump home
+            "Non, je souhaite acheter une extension (promo)":
+                jump extension
 
     label companion_revalidation:
         scene bg main
         ai "Vous êtes sûrs ?"
 
         menu: 
-            "Non, en effet il manque quelque chose...":
-                jump model_l
+            "Non, en effet il manque quelque chose, je souhaite acheter une extension":
+                jump extension
 
-    label model_l:
+    label extension:
         stop music
         scene bg main
 
+        
         show ai:
             xalign 0.5
             yalign 0.4
-            
-        ai "Je peux vous proposer de fusionner votre compagnon avec le dernier modèle en date, le \"modèle S\""
+
+        ai "Quelle extension souhaitez vous installer ?"
+
+        $ extension = True
+
+        jump model_choice
     
     label model_fusion:
         scene bg main
