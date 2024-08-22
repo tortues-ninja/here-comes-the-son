@@ -10,6 +10,9 @@ define v = Character("Amiral Vuong", callback = name_callback, cb_name = "vuong"
 define p = Character("Capitaine Phong", callback = name_callback, cb_name = "phong")
 define pnj = Character("Mec random", callback = name_callback, cb_name = "pnj")
 
+define ai = Character(callback = name_callback, cb_name = "ai")
+image ai = At('ai frame', sprite_highlight('ai'))
+
 define n = Character(callback = name_callback, cb_name = None)
 define config.debug_sound = True 
 
@@ -20,6 +23,7 @@ image lise = At('lise main frame', sprite_highlight('lise'))
 image pnj = At('pnj main frame', sprite_highlight('pnj'))
 
 image bg ai face = Transform("images/background/bg ai face.jpg", size=(1920, 1080), fit="fill")
+image bg main = Transform("images/background/bg retrofuture.jpg", size=(1920, 1080), fit="fill")
 
 
 # The game starts here.
@@ -50,11 +54,15 @@ label start:
         ]
 
     play music "ai-beeping-sound.mp3"
-    scene bg ai face
+    scene bg main
 
-    "Bienvenue dans Companion Creator 1.0"
-    "Commençons la création de votre compagnon virtuel"
-    "Sur quelle base de compagnon voulez-vous partir ?"
+    show ai:
+        xalign 0.5
+        yalign 0.4
+
+    ai "Bienvenue dans Companion Creator 1.0"
+    ai "Commençons la création de votre compagnon virtuel"
+    ai "Sur quelle base de compagnon voulez-vous partir ?"
     stop music
 
     menu:
@@ -64,8 +72,8 @@ label start:
             jump model_validation
 
     label model_validation:
-        scene bg ai face
-        "Vous êtes sûrs ?"
+        scene bg main
+        ai "Vous êtes sûrs ?"
 
         menu: 
             "Non, laisse moi recommencer...":
@@ -74,9 +82,9 @@ label start:
     # Le menu principal pour charger des scénarios
     label home: 
         stop music
-        scene bg ai face
+        scene bg main
 
-        "Choisissez une caractéristique pour votre compagnon"
+        ai "Choisissez une caractéristique pour votre compagnon"
 
         menu:
             "Cuisinier":
@@ -102,11 +110,11 @@ label start:
             )
 
         play music "ai-beeping-sound.mp3"
-        scene bg ai face
+        scene bg main
         show image label_chart:
             xalign 0.5
             yalign 0.5
-        "Est-ce que le compagnon créé vous convient ?"
+        ai "Est-ce que le compagnon créé vous convient ?"
 
         menu: 
             "Oui":
@@ -115,8 +123,8 @@ label start:
                 jump model_l
 
     label companion_revalidation:
-        scene bg ai face
-        "Vous êtes sûrs ?"
+        scene bg main
+        ai "Vous êtes sûrs ?"
 
         menu: 
             "Non, en effet il manque quelque chose...":
@@ -124,12 +132,17 @@ label start:
 
     label model_l:
         stop music
-        scene bg ai face
-        "Je peux vous proposer de fusionner votre compagnon avec le dernier modèle en date, le \"modèle S\""
+        scene bg main
+
+        show ai:
+            xalign 0.5
+            yalign 0.4
+            
+        ai "Je peux vous proposer de fusionner votre compagnon avec le dernier modèle en date, le \"modèle S\""
     
     label model_fusion:
-        scene bg ai face
-        "Il me faut quelques caractéristiques communes supplémentaires"
+        scene bg main
+        ai "Il me faut quelques caractéristiques communes supplémentaires"
 
         menu: 
             "Forceur":
