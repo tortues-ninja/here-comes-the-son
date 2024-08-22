@@ -25,7 +25,7 @@ image pnj = At('pnj main frame', sprite_highlight('pnj'))
 image bg ai face = Transform("images/background/bg ai face.jpg", size=(1920, 1080), fit="fill")
 image bg main = Transform("images/background/bg retrofuture.jpg", size=(1920, 1080), fit="fill")
 
-define LOYAL_VALUE = 50
+define COOL_VALUE = 50
 define SPORTIF_VALUE = 50
 define FORCEUR_VALUE = 50
 define MYTHO_VALUE = 50
@@ -37,7 +37,7 @@ define scenar_choisi = ""
 define son_still_training = True
 
 define plot_labels = [
-        Text('Loyal'), 
+        Text('Cool'), 
         Text('Sportif'), 
         Text('Forceur'), 
         Text('Mytho'), 
@@ -47,7 +47,7 @@ define plot_labels = [
 define label_chart = RadarChart(
         size=500,
         values=[
-                LOYAL_VALUE,
+                COOL_VALUE,
                 SPORTIF_VALUE,
                 FORCEUR_VALUE,
                 MYTHO_VALUE,
@@ -70,8 +70,8 @@ label start:
         xalign 0.5
         yalign 0.4
 
-    ai "Bienvenue dans Companion Creator 1.0"
-    ai "Commençons la création de votre compagnon virtuel"
+    ai "Bienvenue dans Companion Creator 1.0."
+    ai "Commençons la création de votre compagnon virtuel."
     ai "Sur quelle base de compagnon voulez-vous partir ?"
     stop music
 
@@ -87,7 +87,7 @@ label start:
         scene bg main
 
         menu:
-            ai "Choisissez un scénario d'entraînement"
+            ai "Choisissez un scénario d'entraînement."
             "Scénario: Le Cuisinier":
                 $ scenar_choisi = "Le Cuisinier"
                 jump le_cuistot
@@ -104,7 +104,7 @@ label start:
     label companion_stats:
         python:
             plot_values = [
-                LOYAL_VALUE,
+                COOL_VALUE,
                 SPORTIF_VALUE,
                 FORCEUR_VALUE,
                 MYTHO_VALUE,
@@ -125,8 +125,8 @@ label start:
             yalign 0.4
 
         if first_show_stats: 
-            ai "Voici la base du compagnon virtuel que l'on va créer"
-            ai "Passons à l'entraînement du modèle"
+            ai "Voici la base du compagnon virtuel que l'on va créer."
+            ai "Passons à l'entraînement du modèle."
             $ first_show_stats = False
             jump home 
         else:
@@ -168,7 +168,7 @@ label start:
             xalign 0.5
             yalign 0.4
 
-        "Très bon choix! Vous avez sélectionné le modèle Lily"
+        "Très bon choix! Vous avez sélectionné le modèle Lily."
         menu:
             "Entraînons le modèle Lily."
             "scénario 1":

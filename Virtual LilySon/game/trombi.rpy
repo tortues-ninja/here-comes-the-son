@@ -13,18 +13,18 @@ define son_barre_trombi = Image("son main frame barred.png", oversample=1.7)
 label model_choice: 
     window hide
     show screen trombi
-    "Choisissez un modèle à entraîner"
-    "Choisissez un modèle à entraîner"
-    "Choisissez un modèle à entraîner"
-    "Choisissez un modèle à entraîner"
-    "Choisissez un modèle à entraîner"
-    "Choisissez un modèle à entraîner"
-    "Choisissez un modèle à entraîner"
-    "Choisissez un modèle à entraîner"
-    "Choisissez un modèle à entraîner"
-    "Choisissez un modèle à entraîner"
-    "Choisissez un modèle à entraîner"
-    "Choisissez un modèle à entraîner"
+    "Choisissez un modèle à entraîner."
+    "Choisissez un modèle à entraîner."
+    "Choisissez un modèle à entraîner."
+    "Choisissez un modèle à entraîner."
+    "Choisissez un modèle à entraîner."
+    "Choisissez un modèle à entraîner."
+    "Choisissez un modèle à entraîner."
+    "Choisissez un modèle à entraîner."
+    "Choisissez un modèle à entraîner."
+    "Choisissez un modèle à entraîner."
+    "Choisissez un modèle à entraîner."
+    "Choisissez un modèle à entraîner."
    
 screen trombi:
     grid 3 3:

@@ -39,19 +39,26 @@ label mix_models_stats:
     with dissolve
     ai "Voyons les stats actuelles de votre compagnon virtuel"
     python: 
-        LOYAL_VALUE = 100
+        COOL_VALUE = 100
         SPORTIF_VALUE = 95   
         FORCEUR_VALUE = 110  
         MYTHO_VALUE = 40     
         SQUATTEUR_VALUE = 60 
 
         label_chart.values = [
-                LOYAL_VALUE,
+                COOL_VALUE,
                 SPORTIF_VALUE,
                 FORCEUR_VALUE,
                 MYTHO_VALUE,
                 SQUATTEUR_VALUE
             ]
+        label_chart.labels = [
+        Text('Cools'), 
+        Text('Sportifs'), 
+        Text('Forceurs'), 
+        Text('Mythos'), 
+        Text('Squatteurs')
+    ]
 
     hide ai
     show image label_chart:

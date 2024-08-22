@@ -14,7 +14,7 @@ label lune_de_miel:
     python: 
         FORCEUR_VALUE += 30
         SQUATTEUR_VALUE += 50
-        LOYAL_VALUE -= 20
+        COOL_VALUE -= 20
         
     jump companion_stats 
     
