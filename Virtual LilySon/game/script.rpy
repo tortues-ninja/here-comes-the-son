@@ -67,28 +67,7 @@ label start:
     ai "Sur quelle base de compagnon voulez-vous partir ?"
     stop music
 
-    label model_choice:
-
-        menu:
-            "Modèle S":
-                if extension:
-                    ai "Vous avez déjà choisi ce modèle. Veuillez en choisir un autre."
-                    jump model_choice
-                else:
-                    jump home
-            "Modèle L":
-                if extension:
-                    jump model_fusion
-                else:
-                    jump model_validation
-
-    label model_validation:
-        scene bg main
-        ai "Vous êtes sûrs ?"
-
-        menu: 
-            "Non, laisse moi recommencer...":
-                jump start
+    jump label_trombi
 
     # Le menu principal pour charger des scénarios
     label home: 
