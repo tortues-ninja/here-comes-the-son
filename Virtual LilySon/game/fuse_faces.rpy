@@ -1,7 +1,8 @@
 image alily = Image("lise main frame.png", oversample=2)
-image ason = Image("son main.png", oversample=2)
-image fused = Image("fused_lilyson.jpg", oversample=1)
+image ason = Image("son main frame.png", oversample=2)
 
+image fused_1 = Image("fusion-1.webp", oversample=1)
+image fused_2 = Image("fusion-2.webp", oversample=1)
 
 image anim_son:
     parallel:
@@ -10,7 +11,7 @@ image anim_son:
         pause 1
         linear 5.0 xalign 0.5
     parallel:
-        "son main.png"
+        "son main frame.png"
 
 image anim_lily:
     parallel:
@@ -41,9 +42,15 @@ label fuse_faces:
     pause 5.5
     hide anim_son with dissolve
     hide anim_lily with dissolve
-    show fused with flash:
-        xalign 0.5
+
+    show fused_1 with flash:
+        xalign 0.2
         yalign 0.4
+
+    show fused_2 with flash:
+        xalign 0.8
+        yalign 0.4
+
     "Fusion terminée!"
     pause
 

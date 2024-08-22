@@ -68,6 +68,7 @@ label start:
     stop music
 
     hide ai
+    
     jump model_choice 
 
     # Le menu principal pour charger des scénarios

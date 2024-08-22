@@ -1,12 +1,12 @@
-define lily_trombi = Image("lise main frame.png", oversample=2)
-define poisson_trombi = Image("poisson.jpg", oversample=5)
-define son_trombi = Image("son main.png", oversample=2)
-define nemo_trombi = Image("nemo.png", oversample=5)
-define the_rock_trombi = Image("the rock.png", oversample=6)
-define vuong_trombi = Image("vuong main.png", oversample=2)
-define phong_trombi = Image("phong main.png", oversample=2)
-define artanis_trombi = Image("artanis.jpg", oversample=3.5)
-define baloo_trombi = Image("baloo.jpg", oversample=4)
+define lily_trombi = Image("lise main frame.png", oversample=1.5)
+define poisson_trombi = Image("poisson.jpg", oversample=1.5)
+define son_trombi = Image("son main frame.png", oversample=1.5)
+define nemo_trombi = Image("nemo.png", oversample=1.5)
+define the_rock_trombi = Image("the rock.png", oversample=1.5)
+define vuong_trombi = Image("vuong main frame.png", oversample=1.5)
+define phong_trombi = Image("phong main frame.png", oversample=1.5)
+define artanis_trombi = Image("artanis.png", oversample=1.5)
+define baloo_trombi = Image("baloo.jpg", oversample=1.5)
 
 
 label model_choice: 
