@@ -33,6 +33,7 @@ define SQUATTEUR_VALUE = 50
 
 define extension = False
 define first_show_stats = True
+define first_model_fusion = True
 define scenar_choisi = ""
 define son_still_training = True
 
@@ -133,7 +134,7 @@ label start:
             if son_still_training:
                 ai "Merci d'avoir terminé le scénario \"[scenar_choisi]\". Regardons l'avancement de notre modèle..."
             else: 
-                ai "Voici l'état actuel du compagnon virtuel"
+                ai "Voici l'état actuel du compagnon virtuel."
             menu: 
                 ai "Est-ce que le compagnon créé vous convient ?"
                 "Oui, je suis pleinement satisfait":
@@ -157,7 +158,7 @@ label start:
             xalign 0.5
             yalign 0.4
 
-        ai "Quelle extension souhaitez vous installer ?"
+        ai "Quelle extension de modèles souhaitez vous ajouter ?"
 
         $ extension = True
 
@@ -185,13 +186,16 @@ label start:
             xalign 0.5
             yalign 0.4
         with dissolve
-        ai "Merci d'avoir compléter le scénario \"[scenar_choisi]\"! Continuons l'entraînement."
+        if first_model_fusion:
+            ai "Les modèles Lily et Son sont prêts, il est temps de les synchroniser." 
+        else: 
+            ai "Merci d'avoir compléter le scénario \"[scenar_choisi]\"! Continuons l'entraînement."
         hide ai
         jump menu_fusion
 
     label menu_fusion:
         menu: 
-            ai "Entraînons nos deux modèles en simultané."
+            ai "Synchronisons nos deux modèles."
             "Scénario: Les Forceurs":
                 $ scenar_choisi = "Les Forceurs"
                 jump west_coast
@@ -203,7 +207,7 @@ label start:
 
 
     label conclusion:
-        "Merci d'avoir utilisé notre logiciel "
+        "Merci d'avoir utilisé notre logiciel."
         scene family
         pause
         pause

@@ -105,7 +105,7 @@ label fuse_faces:
         yalign 0.4
 
     "Fusion terminée!"
-    "Deux compagnons finals ont été obtenus: le compagnon LilySon et le compagnon SonLily"
-    "Veuillez choisir votre préféré"
+    "Deux compagnons finals ont été obtenus: le compagnon LilySon et le compagnon SonLily."
+    "Veuillez choisir votre préféré."
     jump conclusion
 
