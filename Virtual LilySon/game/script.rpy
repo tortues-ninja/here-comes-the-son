@@ -20,7 +20,7 @@ define flash = Fade(0.1, 0.0, 0.5, color="#fff")
 
 image son = At('son main frame', sprite_highlight('son'))
 image lise = At('lise main frame', sprite_highlight('lise'))
-image pnj = At('pnj main frame', sprite_highlight('pnj'))
+image pnj = At('bruno mars', sprite_highlight('pnj'))
 
 image bg ai face = Transform("images/background/bg ai face.jpg", size=(1920, 1080), fit="fill")
 image bg main = Transform("images/background/bg retrofuture.jpg", size=(1920, 1080), fit="fill")
@@ -47,42 +47,52 @@ define scenar_choisi = ""
 define son_still_training = True
 
 define plot_labels = [
-        Text('Cool'), 
-        Text('Sportif'), 
-        Text('Mytho'), 
-        Text('Forceur'), 
-        Text('Squatteur')
-    ]
+    Text('Cool'), 
+    Text('Sportif'), 
+    Text('Mytho'), 
+    Text('Forceur'), 
+    Text('Squatteur')
+]
 
 define label_chart = RadarChart(
-        size=500,
-        values=[
-                S_COOL_VALUE,
-                S_SPORTIF_VALUE,
-                S_MYTHO_VALUE,
-                S_FORCEUR_VALUE,
-                S_SQUATTEUR_VALUE
-            ],
-        max_value=100,
-        data_colour=(213, 71, 130, 255),
-        line_colour=(0, 0, 0, 255),
-        background_colour=(20, 21, 17, 170),
-        labels = plot_labels
-    )
+    size=500,
+    values=[
+            S_COOL_VALUE,
+            S_SPORTIF_VALUE,
+            S_MYTHO_VALUE,
+            S_FORCEUR_VALUE,
+            S_SQUATTEUR_VALUE
+        ],
+    max_value=100,
+    data_colour=(213, 71, 130, 255),
+    line_colour=(0, 0, 0, 255),
+    background_colour=(20, 21, 17, 170),
+    labels = plot_labels
+)
 
 
 # The game starts here.
 label start:
-    play music "ai-beeping-sound.mp3"
+    play music "<from 0 to 3>ai-beeping-sound.mp3" noloop
     scene bg main
 
     show ai:
         xalign 0.5
         yalign 0.4
+        
+    pause 3.0
 
+    play sound "01.mp3"
     ai "Bienvenue dans Companion Creator 1.0."
+
+
+    stop sound
+    play sound "02.mp3"
     ai "Commençons la création de votre compagnon virtuel."
+    stop sound
+    play sound "03.mp3"
     ai "Sur quelle base de compagnon voulez-vous partir ?"
+
     stop music
 
     hide ai
@@ -95,6 +105,9 @@ label start:
     label home: 
         stop music
         scene bg main
+
+        stop sound
+        play sound "04.mp3"
 
         menu:
             ai "Choisissez un scénario d'entraînement."
@@ -122,7 +135,6 @@ label start:
             ]
             label_chart.values = plot_values
 
-        play music "ai-beeping-sound.mp3"
         scene bg main
         with dissolve
 
@@ -135,15 +147,26 @@ label start:
             yalign 0.4
 
         if first_show_stats: 
+            stop sound
+            play sound "05.mp3"
             ai "Voici la base du compagnon virtuel que l'on va créer."
+            stop sound
+            play sound "06.mp3"
             ai "Passons à l'entraînement du modèle."
             $ first_show_stats = False
             jump home 
         else:
             if son_still_training:
+                stop sound
+                play sound "07.mp3"
                 ai "Merci d'avoir terminé le scénario \"[scenar_choisi]\". Regardons l'avancement de notre modèle..."
             else: 
+                stop sound
+                play sound "08.mp3"
                 ai "Voici l'état actuel du compagnon virtuel."
+
+            stop sound
+            play sound "09.mp3"
             menu: 
                 ai "Est-ce que le compagnon créé vous convient ?"
                 "Oui, je suis pleinement satisfait":
@@ -167,6 +190,8 @@ label start:
             xalign 0.5
             yalign 0.4
 
+        stop sound
+        play sound "10.mp3"
         ai "Quelle extension de modèles souhaitez vous ajouter ?"
 
         $ extension = True
@@ -183,10 +208,16 @@ label start:
             yalign 0.4
         with dissolve
         if first_model_lily: 
+            stop sound
+            play sound "11.mp3"
             ai "Très bon choix! Vous avez sélectionné le modèle Lily."
             $ first_model_lily = False
         else: 
+            stop sound
+            play sound "12.mp3"
             ai "Merci d'avoir complété le scénario: \"[scenar_choisi]\". Continuons..."
+        stop sound
+        play sound "13.mp3"
         menu:
             "Choisissez un scénario d'entraînement pour le modèle Lily."
             "Scénario: La Fine Gourmet": 
@@ -206,13 +237,19 @@ label start:
             yalign 0.4
         with dissolve
         if first_model_fusion:
+            stop sound
+            play sound "14.mp3"
             ai "Les modèles Lily et Son sont prêts, il est temps de les synchroniser." 
         else: 
-            ai "Merci d'avoir compléter le scénario \"[scenar_choisi]\"! Continuons l'entraînement."
+            stop sound
+            play sound "18.mp3"
+            ai "Merci d'avoir complété le scénario \"[scenar_choisi]\"! Continuons l'entraînement."
         hide ai
         jump menu_fusion
 
     label menu_fusion:
+        stop sound
+        play sound "15.mp3"
         menu: 
             ai "Synchronisons nos deux modèles."
             "Scénario: Les Forceurs":
@@ -226,6 +263,8 @@ label start:
 
 
     label conclusion:
+        stop sound
+        play sound "16.mp3"
         "Merci d'avoir utilisé notre logiciel."
         scene family
         pause
@@ -267,6 +306,8 @@ label stats_lily:
         xalign 0.2
         yalign 0.4
 
+    stop sound
+    play sound "17.mp3"
     ai "Est-ce que le compagnon créé vous convient ?"
     menu: 
         "Oui, je suis pleinement satisfait":
