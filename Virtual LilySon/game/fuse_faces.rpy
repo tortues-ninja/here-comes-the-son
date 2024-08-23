@@ -37,6 +37,7 @@ label mix_models_stats:
         xalign 0.5
         yalign 0.4
     with dissolve
+    play sound "22.mp3"
     ai "Voyons les stats fusionnées de vos deux modèles."
     python: 
         S_COOL_VALUE = 95
@@ -74,8 +75,9 @@ label mix_models_stats:
         yalign 0.4
     with dissolve
 
-
-    "C'est pas mal non?"
+    stop sound
+    play sound "23.mp3"
+    ai "C'est pas mal non ?"
     menu: 
         "Fusionner les modèles":
             hide label_chart with dissolve
@@ -85,8 +87,12 @@ label mix_models_stats:
             jump mix_models_stats
 
 label fuse_faces:
-    "Le processus de fusion des modèles commence dans 3, 2, 1..."
-    "Fusion enclenché!"
+    stop sound
+    play sound "24.mp3"
+    ai "Le processus de fusion des modèles commence dans 3, 2, 1..."
+    stop sound
+    play sound "25.mp3"
+    ai "Fusion enclenchée !"
     hide ason
     hide alily 
     show anim_son
@@ -103,9 +109,14 @@ label fuse_faces:
     show fused_1 with flash:
         xalign 0.8
         yalign 0.4
-
-    "Fusion terminée!"
-    "Deux compagnons finals ont été obtenus: le compagnon LilySon et le compagnon SonLily."
-    "Veuillez choisir votre compagnon préféré."
+    stop sound
+    play sound "26.mp3"
+    ai "Fusion terminée !"
+    stop sound
+    play sound "27.mp3"
+    ai "Deux compagnons finaux ont été obtenus: le compagnon LilySon et le compagnon SonLily."
+    stop sound
+    play sound "28.mp3"
+    ai "Veuillez choisir votre compagnon préféré."
     jump conclusion
 

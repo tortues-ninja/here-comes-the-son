@@ -13,6 +13,8 @@ define son_barre_trombi = Image("son main frame barred.png", oversample=1.7)
 label model_choice: 
     window hide
     show screen trombi
+    stop sound
+    play sound "19.mp3"
     "Choisissez un modèle à entraîner."
     "Choisissez un modèle à entraîner."
     "Choisissez un modèle à entraîner."
