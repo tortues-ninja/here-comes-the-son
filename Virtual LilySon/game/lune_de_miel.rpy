@@ -12,9 +12,9 @@ label lune_de_miel:
     "\"Lune de miel\" en Patagonie"
     stop sound
     python: 
-        FORCEUR_VALUE += 30
-        SQUATTEUR_VALUE += 50
-        COOL_VALUE -= 20
+        S_FORCEUR_VALUE += 30
+        S_SQUATTEUR_VALUE += 50
+        S_COOL_VALUE -= 20
         
     jump companion_stats 
     

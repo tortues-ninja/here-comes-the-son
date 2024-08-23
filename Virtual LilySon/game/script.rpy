@@ -25,34 +25,43 @@ image pnj = At('pnj main frame', sprite_highlight('pnj'))
 image bg ai face = Transform("images/background/bg ai face.jpg", size=(1920, 1080), fit="fill")
 image bg main = Transform("images/background/bg retrofuture.jpg", size=(1920, 1080), fit="fill")
 
-define COOL_VALUE = 50
-define SPORTIF_VALUE = 50
-define FORCEUR_VALUE = 50
-define MYTHO_VALUE = 50
-define SQUATTEUR_VALUE = 50
+# Stats Son
+define S_COOL_VALUE = 50
+define S_SPORTIF_VALUE = 50
+define S_FORCEUR_VALUE = 50
+define S_MYTHO_VALUE = 50
+define S_SQUATTEUR_VALUE = 50
+
+# Stats Lily
+define L_COOL_VALUE = 50
+define L_SPORTIF_VALUE = 50
+define L_FORCEUR_VALUE = 50
+define L_MYTHO_VALUE = 50
+define L_SQUATTEUR_VALUE = 50
 
 define extension = False
 define first_show_stats = True
 define first_model_fusion = True
+define first_model_lily = True
 define scenar_choisi = ""
 define son_still_training = True
 
 define plot_labels = [
         Text('Cool'), 
         Text('Sportif'), 
-        Text('Forceur'), 
         Text('Mytho'), 
+        Text('Forceur'), 
         Text('Squatteur')
     ]
 
 define label_chart = RadarChart(
         size=500,
         values=[
-                COOL_VALUE,
-                SPORTIF_VALUE,
-                FORCEUR_VALUE,
-                MYTHO_VALUE,
-                SQUATTEUR_VALUE
+                S_COOL_VALUE,
+                S_SPORTIF_VALUE,
+                S_MYTHO_VALUE,
+                S_FORCEUR_VALUE,
+                S_SQUATTEUR_VALUE
             ],
         max_value=100,
         data_colour=(213, 71, 130, 255),
@@ -105,11 +114,11 @@ label start:
     label companion_stats:
         python:
             plot_values = [
-                COOL_VALUE,
-                SPORTIF_VALUE,
-                FORCEUR_VALUE,
-                MYTHO_VALUE,
-                SQUATTEUR_VALUE
+                S_COOL_VALUE,
+                S_SPORTIF_VALUE,
+                S_MYTHO_VALUE,
+                S_FORCEUR_VALUE,
+                S_SQUATTEUR_VALUE
             ]
             label_chart.values = plot_values
 
@@ -165,19 +174,29 @@ label start:
         hide ai
         call model_choice
 
+        jump model_lily
+
+    label model_lily:
+        scene bg main
         show ai:
             xalign 0.5
             yalign 0.4
-
-        "Très bon choix! Vous avez sélectionné le modèle Lily."
+        with dissolve
+        if first_model_lily: 
+            ai "Très bon choix! Vous avez sélectionné le modèle Lily."
+            $ first_model_lily = False
+        else: 
+            ai "Merci d'avoir complété le scénario: \"[scenar_choisi]\". Continuons..."
         menu:
-            "Entraînons le modèle Lily."
-            "scénario 1":
-                jump conclusion
-            "scénario 2":
-                jump conclusion
+            "Choisissez un scénario d'entraînement pour le modèle Lily."
+            "Scénario: La Fine Gourmet": 
+                $ scenar_choisi = "La Fine Gourmet"
+                jump bouffe_galere
+            "Scénario: La Guerrière":
+                $ scenar_choisi = "La Guerrière"
+                jump guerriere
             "Le modèle Lily est prêt":
-                jump model_fusion
+                jump stats_lily 
 
     
     label model_fusion:
@@ -225,5 +244,35 @@ screen text_je_ne_crois_pas:
         xalign 0.5
         yalign 0.5
         text "Je ne crois pas..."
+
+label stats_lily:
+    python:
+        plot_values = [
+            L_COOL_VALUE,
+            L_SPORTIF_VALUE,
+            L_MYTHO_VALUE,
+            L_FORCEUR_VALUE,
+            L_SQUATTEUR_VALUE
+        ]
+        label_chart.values = plot_values
+
+    scene bg main
+    with dissolve
+
+    show image label_chart:
+        xalign 0.7
+        yalign 0.4
+
+    show ai:
+        xalign 0.2
+        yalign 0.4
+
+    ai "Est-ce que le compagnon créé vous convient ?"
+    menu: 
+        "Oui, je suis pleinement satisfait":
+            jump model_fusion 
+        "Non, je souhaite continuer à entraîner le modèle":
+            $ first_model_lily = True
+            jump model_lily
 
 

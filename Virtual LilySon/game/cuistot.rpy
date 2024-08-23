@@ -50,15 +50,15 @@ label le_cuistot:
 
     menu: 
         "C'est une recette que j'ai inventée":
-            $ MYTHO_VALUE += 30
-            $ COOL_VALUE -= 40
+            $ S_MYTHO_VALUE += 30
+            $ S_COOL_VALUE -= 40
         "C'est la recette d'un pote qui fait des supers barbecues":
-            $ COOL_VALUE += 30
+            $ S_COOL_VALUE += 30
         "Rajoutez du nuoc mam c'est vraiment incroyable":
-            $ FORCEUR_VALUE += 20
+            $ S_FORCEUR_VALUE += 20
         "C'est la recette de ma mère, elle fait les meilleurs steakguez":
-            $ FORCEUR_VALUE += 30
-            $ COOL_VALUE -= 30
-            $ MYTHO_VALUE += 20
+            $ S_FORCEUR_VALUE += 30
+            $ S_COOL_VALUE -= 30
+            $ S_MYTHO_VALUE += 20
 
     jump companion_stats

@@ -24,19 +24,19 @@ label vvd:
 
     menu: 
         "J'analyse mes adversaires en regardant des replays des qualifs":
-            $ COOL_VALUE += 30
-            $ SPORTIF_VALUE += 10
-            $ FORCEUR_VALUE += 10
+            $ S_COOL_VALUE += 30
+            $ S_SPORTIF_VALUE += 10
+            $ S_FORCEUR_VALUE += 10
         "Je fais 20 pompes viets parce que je suis arrivé en retard":
-            $ FORCEUR_VALUE += 10
-            $ SPORTIF_VALUE += 30
+            $ S_FORCEUR_VALUE += 10
+            $ S_SPORTIF_VALUE += 30
         "Je pars en soirée jusqu'au bout de la nuit avec mes compagnons d'armes":
-            $ FORCEUR_VALUE += 30
-            $ SPORTIF_VALUE -= 20
-            $ COOL_VALUE -= 10
+            $ S_FORCEUR_VALUE += 30
+            $ S_SPORTIF_VALUE -= 20
+            $ S_COOL_VALUE -= 10
         "Je médite sous la douche":
-            $ FORCEUR_VALUE += 20
-            $ MYTHO_VALUE += 30
-            $ COOL_VALUE += 10
+            $ S_FORCEUR_VALUE += 20
+            $ S_MYTHO_VALUE += 30
+            $ S_COOL_VALUE += 10
     stop sound
     jump companion_stats 
