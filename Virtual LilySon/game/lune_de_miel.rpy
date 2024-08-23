@@ -6,8 +6,8 @@ label lune_de_miel:
     play sound "drama.mp3" 
     scene black
     with fade
-    "Pour ce panel nous avons invité un expert"
-    "Cette personne a été victime d'un squatteur compulsif"
+    "Pour ce panel nous avons invité un expert."
+    "Cette personne a été victime d'un squatteur compulsif..."
     show patagonie
     "\"Lune de miel\" en Patagonie"
     stop sound

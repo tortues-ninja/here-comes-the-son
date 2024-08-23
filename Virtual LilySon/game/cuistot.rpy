@@ -15,7 +15,7 @@ label le_cuistot:
         yalign 0.4
     with dissolve
 
-    coach "Son, Son! Je vais te montrer une recette que j'ai créé c'est de la bombe"
+    coach "Son, Son! Je vais te montrer une recette que j'ai créé c'est de la bombe."
 
     show son:
         xalign 0.9
@@ -23,14 +23,14 @@ label le_cuistot:
     with dissolve
     
     s "Yo! Que pasa en la casa?"
-    coach "Mec! je te présente le Steakguez, goûte ça"
+    coach "Mec! je te présente le Steakguez, goûte ça."
 
     show steakguez:
         xalign 0.5
         yalign 0.4
     with dissolve
 
-    s "Oh purée, c'est tellement bon"
+    s "Oh purée, c'est tellement bon."
 
     stop sound
     scene black
@@ -46,7 +46,7 @@ label le_cuistot:
         yalign 0.4
     with dissolve
     s "Bienvenue à mon barbecue d'anniversaire!"
-    s "Venez goûter à cette tuerie, c'est un steakguez"
+    s "Venez goûter à cette tuerie, c'est un steakguez."
 
     menu: 
         "C'est une recette que j'ai inventée":

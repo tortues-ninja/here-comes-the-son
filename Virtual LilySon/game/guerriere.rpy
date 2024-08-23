@@ -1,20 +1,24 @@
 define sommet_torres = Image("sommet_torres.jpg", oversample=4)
+define guide = Character("Mec random", callback = name_callback, cb_name = "guide")
+image guide = At('amar frame', sprite_highlight('guide'))
+
 label guerriere:
     scene bg_montagne
     play music "persona.mp3"
 
-    show pnj:
+    show guide:
         xalign 0.1
         yalign 0.4
     with dissolve
-    "Bon pour la randonnée de demain il y a juste 22km à faire et 1600m de dénivelé."
+    guide "Randonnée de demain! 22km à faire et 1600m de dénivelé."
+    guide "Que du fun! hahaha"
     show lise:
         xalign 0.9
         yalign 0.4
     with dissolve
     l "(Je me suis blessé au pied la veille. Pas sûre que je suis en état de marcher...)"
-    "Ah oui, il faut qu'on parte à 3h du matin sinon on risque de louper le level du soleil sur le sommet."
-    "Aussi j'ai oublié de vous dire: il risque de pleuvoir en bas et neiger en haut hahaha"
+    guide "Ah oui, il faut qu'on parte à 3h du matin sinon on risque de louper le level du soleil sur le sommet."
+    guide "Aussi j'ai oublié de vous dire: il risque de pleuvoir en bas et neiger en haut hahaha."
     l "(... gloups)"
     menu:
         "Quelle décision vais-je prendre?"
