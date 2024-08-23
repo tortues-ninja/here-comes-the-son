@@ -321,13 +321,13 @@ label stats_lily:
         xalign 0.7
         yalign 0.4
 
-    show ai:
+    show lise:
         xalign 0.2
         yalign 0.4
 
     stop sound
     play sound "17.mp3"
-    ai "Est-ce que le compagnon créé vous convient ?"
+    "Est-ce que le compagnon créé vous convient ?"
     menu: 
         "Oui, je suis pleinement satisfait":
             jump model_fusion 

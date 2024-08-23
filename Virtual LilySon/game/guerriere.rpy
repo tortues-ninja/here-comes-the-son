@@ -1,6 +1,6 @@
 define sommet_torres = Image("sommet_torres.jpg", oversample=4)
 define guide = Character("Mec random", callback = name_callback, cb_name = "guide")
-image guide = At('amar frame', sprite_highlight('guide'))
+image guide = At('antoine', sprite_highlight('guide'))
 
 label guerriere:
     scene bg_montagne
