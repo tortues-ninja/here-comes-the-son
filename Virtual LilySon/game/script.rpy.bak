@@ -97,7 +97,7 @@ label start:
 
     hide ai
     
-    call model_choice from _call_model_choice 
+    call model_choice 
 
     jump companion_stats
 
@@ -197,7 +197,7 @@ label start:
         $ extension = True
 
         hide ai
-        call model_choice from _call_model_choice_1
+        call model_choice
 
         jump model_lily
 
