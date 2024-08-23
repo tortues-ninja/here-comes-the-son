@@ -40,6 +40,7 @@ label le_cuistot:
 
     scene bg salon massy
     with fade
+    play sound "bbq.mp3"
 
     show son:
         xalign 0.1
@@ -61,4 +62,5 @@ label le_cuistot:
             $ S_COOL_VALUE -= 30
             $ S_MYTHO_VALUE += 20
 
+    stop sound
     jump companion_stats
