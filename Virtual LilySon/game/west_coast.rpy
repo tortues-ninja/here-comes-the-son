@@ -27,6 +27,8 @@ label west_coast:
     l "Ok, alors, je cherche, \"cours débutants\"..."
 
     scene bg west coast
+    stop sound
+    play sound "uptown-funk.mp3"
     with fade
 
     show pnj:

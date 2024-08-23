@@ -1,5 +1,6 @@
 label bouffe_galere:
     scene bg salon massy
+    play sound "persona.mp3"
     show image "lise main frame":
         xalign 0.5
         yalign 0.4

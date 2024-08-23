@@ -11,6 +11,7 @@ label tasses:
     stop sound
     stop music
     scene bg salon massy
+    play sound "persona.mp3"
     show blily:
         xalign 0.1
         yalign 0.4

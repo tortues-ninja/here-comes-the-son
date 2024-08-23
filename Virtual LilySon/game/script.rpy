@@ -214,6 +214,7 @@ label start:
             $ first_model_lily = False
         else: 
             stop sound
+            stop music
             play sound "12.mp3"
             ai "Merci d'avoir complété le scénario: \"[scenar_choisi]\". Continuons..."
         stop sound

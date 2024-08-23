@@ -1,6 +1,7 @@
 define sommet_torres = Image("sommet_torres.jpg", oversample=4)
 label guerriere:
     scene bg_montagne
+    play music "persona.mp3"
 
     show pnj:
         xalign 0.1
@@ -38,6 +39,7 @@ label guerriere:
         yalign 0.8
     with dissolve
     "Un couple au sommet! (elle est montée 😱)"
+    
     jump model_lily
     
         
