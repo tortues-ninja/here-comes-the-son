@@ -4,7 +4,7 @@ image guide = At('antoine', sprite_highlight('guide'))
 
 label guerriere:
     scene bg_montagne
-    play music "persona.mp3"
+    play music "nature_sound.mp3"
 
     show guide:
         xalign 0.1
